@@ -1,11 +1,16 @@
 import unittest
+from io import StringIO
+from unittest import mock
 
 from src.introduction_to_programming.mailing_address import mailing_address
-from test.Testing.StandardOutput import out_put
 
 
 class MailingAddressTest(unittest.TestCase):
 
-    def test_mailing_address(self):
-        self.assertEqual(out_put(mailing_address), 'Dario Di Gulio\n123 Main St.\nAnytown, NY 12345')
+    @mock.patch('sys.stdout', new_callable=StringIO)
+    def test_mailing_address(self, fake_system_out):
+        expected_output = 'Dario Di Gulio\n123 Main St.\nAnytown, NY 12345\n'
 
+        mailing_address()
+
+        self.assertEqual(fake_system_out.getvalue(), expected_output)
