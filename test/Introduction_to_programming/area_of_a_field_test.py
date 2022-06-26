@@ -12,4 +12,5 @@ class AreaOfAFieldTest(TestCase):
         expected_output = "The area of a field is 36.71 acres\n"
 
         area_of_a_field()
+
         self.assertEqual(fake_system_out.getvalue(), expected_output)
