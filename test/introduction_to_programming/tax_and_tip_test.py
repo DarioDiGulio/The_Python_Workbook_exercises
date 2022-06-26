@@ -10,7 +10,7 @@ class TaxAndTipTest(TestCase):
     @patch('builtins.input', MagicMock(side_effect=[750]))
     def test_ticket(self, fake_system_out: StringIO):
         expected_output = "Tax and Trip\n" \
-                          "The total cost of your meal is $750.50\n" \
+                          "The total cost of your meal is $750.00\n" \
                           f"The tax is {self.tax_amount:.2f}\n" \
                           f"The tip is {self.tip_amount:.2f}\n" \
                           f"The total cost of your meal with tax is ${self.total_cost:.2f}\n"
